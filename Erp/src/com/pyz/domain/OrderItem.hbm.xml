@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping package="com.pyz.domain">
+ <class name="OrderItem" table="orderItem">
+ <id name="id">
+<column name="id"></column>
+<generator class="sequence">
+<param name="sequence">seq_orderItem</param>
+</generator>
+</id>
+<property name="num">
+<column name="num" not-null="true"></column>
+</property>
+<property name="remarks">
+<column name="remarks" not-null="false" length="256"></column>
+</property>
+<property name="sum">
+<column name="sum" not-null="true"></column>
+</property>
+  
+<many-to-one name="goods"> 
+<column name="goodsId"></column>
+</many-to-one>
+<many-to-one name="depot">
+<column name="depotId"></column>
+</many-to-one>
+<many-to-one name="orderform"> 
+<column name="orderformId"></column>
+</many-to-one>
+ </class>
+ </hibernate-mapping>

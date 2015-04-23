@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.pyz.domain">
+<class name="Goods" table="goods">
+<id name="id">
+<column name="id"></column>
+<generator class="sequence">
+<param name="sequence">seq_goods</param>
+</generator>
+</id>
+<property name="name">
+<column name="name" not-null="true" length="64"></column>
+</property>
+<property name="num">
+<column name="num" not-null="true"></column>
+</property>
+<property name="price">
+<column name="price" not-null="true"></column>
+</property>
+<many-to-one name="type">
+<column name="typeId"></column>
+</many-to-one>
+
+<many-to-one name="depot">
+<column name="depotId"></column>
+</many-to-one>
+<many-to-one name="provider">
+<column name="providerId"></column>
+</many-to-one>
+
+<set name="orderItems">
+<key><column name="goodsId"></column></key>
+<one-to-many class="com.pyz.domain.OrderItem"/>
+
+</set>
+<set name="sellForms">
+<key><column name="goodsId"></column></key>
+<one-to-many class="com.pyz.domain.SellForm"/>
+</set>
+
+</class>
+</hibernate-mapping>

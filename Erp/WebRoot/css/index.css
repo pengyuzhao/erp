@@ -1,0 +1,21 @@
+.tabs div{
+	
+	padding: 0px 10px;
+	
+}
+.title{
+	
+	height: 50px; 
+	color: white;
+	font-size:40px; 
+	padding:25px 0px 0px 40px;
+}
+.welcome{
+	color: white;
+	float: right;
+	padding: 0px 20px 0px 0px;
+}
+.welcome a:link {
+	text-decoration:none;  
+	color: white;
+}

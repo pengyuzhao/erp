@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- struts交给spring 管理 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+	<constant name="struts.devMode" value="true" />
+
+	<package name="loginPackage" namespace="/login"
+		extends="struts-default,json-default">
+		<action name="loginAction_*" class="loginAction" method="{1}">
+			<result name="login">/WEB-INF/login.jsp</result>
+			<result name="index">/WEB-INF/index.jsp</result>
+		</action>
+	</package>
+
+	<package name="indexPackage" namespace="/index"
+		extends="struts-default,json-default">
+		<action name="indexAction_*" class="indexAction" method="{1}">
+			<result type="json">
+				<!-- 此处将reslut的值返回给客户端，root的值对应要返回的值的属性result 注意：root为固定写法，否则不会把result的值返回给客户端 -->
+				<param name="root">result</param>
+			</result>
+			<result name="provider">
+				/WEB-INF/provider.jsp
+			</result>
+			<result name="customer">
+				/WEB-INF/customer.jsp
+			</result>
+			<result name="procurement">
+				/WEB-INF/procurement.jsp
+			</result>
+			<result name="depot">
+				/WEB-INF/depot.jsp
+			</result>
+			<result name="sell">
+				/WEB-INF/sell.jsp
+			</result>
+			<result name="type">
+				/WEB-INF/type.jsp
+			</result>
+		</action>
+	</package>
+
+	<package name="providerPackage" namespace="/provider"
+		extends="struts-default,json-default">
+		<action name="providerAction_*" class="providerAction" method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="customerPackage" namespace="/customer"
+		extends="struts-default,json-default">
+		<action name="customerAction_*" class="customerAction" method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	<package name="procurementPackage" namespace="/procurement"
+		extends="struts-default,json-default">
+		<action name="procurementAction_*" class="procurementAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	<package name="depotPackage" namespace="/depot" extends="struts-default,json-default">
+	
+	<action name="depotAction_*" class="depotAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+	</action>
+	</package>
+	<package name="depotGoodsPackage" namespace="/depotGoods" extends="struts-default,json-default">
+	<action name="depotGoodsAction_*" class="depotGoodsAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+	</action>
+	</package>
+	
+
+	
+	<package name="sellPackage" namespace="/sell" extends="struts-default,json-default">
+	<action name="sellAction_*" class="sellAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+	</action>
+	</package>
+	
+	<package name="typePackage" namespace="/type" extends="struts-default,json-default">
+	<action name="typeAction_*" class="typeAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+	</action>
+	</package>
+</struts>

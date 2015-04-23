@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping package="com.pyz.domain">
+ <class name="SellForm" table="sellForm">
+ <id name="id">
+ <column name="id"/>
+<generator class="sequence">
+<param name="sequence">seq_sellForm</param>
+</generator>
+ </id>
+ <property name="sum"> 
+ <column name="sum"></column>
+ </property>
+ <property name="num"> 
+ <column name="num" ></column>
+ </property>
+  <property name="formData"> 
+ <column name="formData"></column>
+ </property>
+ <many-to-one name="goods">
+ <column name="goodsId"></column>
+ </many-to-one>
+  <many-to-one name="customer">
+ <column name="customerId"></column>
+ </many-to-one>
+ </class>
+ </hibernate-mapping>

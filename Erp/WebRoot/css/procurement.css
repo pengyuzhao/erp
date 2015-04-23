@@ -1,0 +1,25 @@
+.orderItems_title {
+	text-align: center;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+input[type='text'] {
+	height: 20px;
+	margin: 0;
+	padding: 0 2px;
+	box-sizing: content-box;
+}
+.orderItems_content p{
+	
+	padding: 10px 20px 0px 20px;
+}
+.date {
+	float: right;
+	padding: 0 20px 0 0;
+}
+#add_goods p:{
+	
+	padding: 10px 20px 0px 20px;
+}
+

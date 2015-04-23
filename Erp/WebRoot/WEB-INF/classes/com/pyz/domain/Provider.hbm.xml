@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping package="com.pyz.domain">
+ <class name="Provider" table="provider">
+ <id name="id">
+ <column name="id"/>
+<generator class="sequence">
+<param name="sequence">seq_provider</param>
+</generator>
+ </id>
+ <property name="name"> 
+ <column name="name" length="128" not-null="true"></column>
+ </property>
+ 
+ <property name="address"> 
+ <column name="address" length="256" not-null="true"></column>
+ </property>
+  <property name="phone"> 
+ <column name="phone" length="64" not-null="true"></column>
+ </property>
+ <set name="goods" cascade="all">
+ <key><column name="providerId"></column></key>
+<one-to-many class="com.pyz.domain.Goods"/>
+ </set>
+ </class>
+ </hibernate-mapping>

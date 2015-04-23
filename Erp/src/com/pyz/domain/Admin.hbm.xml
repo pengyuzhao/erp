@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.pyz.domain">
+<class name="Admin" table="admin">
+<id name="id" column="id"/>
+<property name="userName">
+<column name="userName" not-null="true" length="64"></column>
+</property>
+<property name="password">
+<column name="password" not-null="true" length="64"></column>
+</property>
+</class>
+</hibernate-mapping>

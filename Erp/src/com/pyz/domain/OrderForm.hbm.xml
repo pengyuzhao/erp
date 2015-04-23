@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  <hibernate-mapping package="com.pyz.domain">
+  <class name="OrderForm" table="OrderForm">
+  <id name="id">
+  <column name="id">
+  </column>
+  <generator class="sequence">
+  <param name="sequence">seq_order</param>
+  </generator>
+  </id>
+  <property name="handler">
+  <column name="handler" not-null="true" length="64"></column>
+  </property>
+   <property name="orderDate">
+  <column name="orderDate" not-null="true"></column>
+  </property>
+   <property name="state">
+  <column name="state" not-null="true" length="32"></column>
+  </property>
+  <set name="orderItems" cascade="all-delete-orphan">
+ 	<key><column name="orderformId"></column></key>
+ 	<one-to-many class="com.pyz.domain.OrderItem"/>
+  </set>
+  </class>
+  </hibernate-mapping>
